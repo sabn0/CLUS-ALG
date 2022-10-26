@@ -1,7 +1,7 @@
 
 # import packages
 import numpy as np
-from BaseAlgo import BaseAlgo
+from Algorithms.BaseAlgo import BaseAlgo
 
 
 class KMeans(BaseAlgo):
