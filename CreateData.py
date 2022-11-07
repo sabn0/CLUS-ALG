@@ -20,6 +20,7 @@ if __name__ == "__main__":
     data_points = np.random.rand(N, D)
 
     # for dbscan
+    """
     lower, upper = 0.4, 0.6
     data_points = np.random.uniform(lower,upper,[N//5,D])
     while True:
@@ -28,5 +29,6 @@ if __name__ == "__main__":
             data_points = np.concatenate((data_points, outer_point))
         if data_points.shape[0] >= N:
             break
+    """
 
     np.save(args.SaveData, data_points)
