@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('-a', '--Algorithm', required=True, type=str, help='name of algorithm')
-    parser.add_argument('-k', '--NumCentroids', default=2, type=int)
+    parser.add_argument('-k', '--NumCentroids', default=4, type=int)
     parser.add_argument('-f', '--FiguresDir', default='Figures', type=str)
     parser.add_argument('-d', '--Data', required=True, help='path to data file, npy')
     args = parser.parse_args()
