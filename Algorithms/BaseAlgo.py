@@ -23,6 +23,19 @@ class BaseAlgo:
     def euclidean_distance(self, u: np.array, v: np.array) -> float:
         return np.sqrt(sum([(a-b)**2 for a, b in zip(u, v)]))
 
+    def getDistanceMatrix(self) -> np.array:
+
+        N_points, data_dim = self.data_points.shape
+        distances = np.zeros((N_points, N_points))
+
+        # measure distances between points
+        for i, data_point_0 in enumerate(self.data_points):
+            for j, data_point_1 in enumerate(self.data_points[(i+1):]):
+                distance = self.euclidean_distance(data_point_0, data_point_1)
+                distances[i, j+(i+1)] = distance
+                distances[j+(i+1), i] = distance
+        return distances
+
     def getPalette(self, N: int):
         if not self.palette or len(self.palette) != N:
             hex = list(range(10))+list('ABCDEF')

@@ -20,15 +20,8 @@ class DBScan(BaseAlgo):
     def run(self):
 
         # distances saved in a N_points * N_points matrix (symmetrical)
-        N_points, data_dim = self.data_points.shape
-        distances = np.zeros((N_points, N_points))
-
-        # measure distances between points
-        for i, data_point_0 in enumerate(self.data_points):
-            for j, data_point_1 in enumerate(self.data_points[(i+1):]):
-                distance = self.euclidean_distance(data_point_0, data_point_1)
-                distances[i, j+(i+1)] = distance
-                distances[j+(i+1), i] = distance
+        N_points, _ = self.data_points.shape
+        distances = self.getDistanceMatrix()
 
         # determine if each data point is a core point or not and save close points
         core_points = {}
