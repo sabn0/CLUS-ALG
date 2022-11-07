@@ -19,9 +19,12 @@ if __name__ == "__main__":
     if not os.path.isdir(args.FiguresDir):
         os.mkdir(args.FiguresDir)
     else:
+        pass
+        """
         for file_name in os.listdir(args.FiguresDir):
             file_name = os.path.join(args.FiguresDir, file_name)
             os.remove(file_name)
+        """
 
     data_points = np.load(args.Data)
 
