@@ -30,9 +30,3 @@ if __name__ == "__main__":
             break
 
     np.save(args.SaveData, data_points)
-
-    # plot data
-    df = pd.DataFrame(data_points, columns=[0, 1])
-    ax = sns.scatterplot(data=df, x=0, y=1)
-    ax.get_figure().savefig('check.png', bbox_inches='tight')
-    plt.clf()
