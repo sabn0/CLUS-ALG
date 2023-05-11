@@ -7,3 +7,4 @@ Algorithms work on data with n dimension.
 2) The DBScan algorithm : Density-based, recursion on close points and cores.
 
 
+...
