@@ -1,5 +1,7 @@
 # CLUS-ALG
 
+![python version](https://img.shields.io/badge/python-3.8-blue)
+
 Self-implementation of popular clustering algorithms.
 Algorithms work on data with n dimension.
 
