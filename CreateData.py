@@ -2,9 +2,6 @@
 #import packages
 import argparse
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-import pandas as pd
 
 if __name__ == "__main__":
 
@@ -33,5 +30,5 @@ if __name__ == "__main__":
     else:
         raise ValueError("unrecognized alogrithm {}".format(args.Algorithm))
 
-    
+
     np.save(args.SaveData, data_points)
