@@ -17,7 +17,7 @@ class KMeans(BaseAlgo):
         self.max_iter = max_iter
         self.K = K
 
-    def run(self):
+    def run(self, file_name: str):
 
         # expectation - maximization implementation for n'dim data
         N_points, data_dim = self.data_points.shape
@@ -57,6 +57,6 @@ class KMeans(BaseAlgo):
                 break
 
         self.labels = labels
-        self.makeGIF()
+        self.makeGIF(file_name)
         return self
 

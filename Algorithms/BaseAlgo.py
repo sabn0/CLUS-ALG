@@ -19,7 +19,7 @@ class BaseAlgo:
         self.labels = None
 
     @abstractmethod
-    def run(self):
+    def run(self, file_name: str):
         pass
 
     def euclidean_distance(self, u: np.array, v: np.array) -> float:
@@ -86,7 +86,8 @@ class BaseAlgo:
         plt.clf()
 
 
-    def makeGIF(self):
+
+    def makeGIF(self, file_name: str):
         figures = os.listdir(self.figures_dir)
         if not figures:
             return
@@ -98,4 +99,4 @@ class BaseAlgo:
             img = imageio.imread(file_path)
             images.append(img)
 
-        imageio.mimwrite(os.path.join(self.figures_dir, 'demo.gif'), images, duration=0.3)
+        imageio.mimwrite(os.path.join(self.figures_dir, 'demo_{}.gif'.format(file_name)), images, duration=0.3)
