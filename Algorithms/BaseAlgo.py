@@ -6,20 +6,20 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 from abc import ABC, abstractmethod
-import imageio
 
 
 class BaseAlgo:
-    def __init__(self, data_points: np.array, figures_dir=None):
+    def __init__(self, data_points: np.array, figures_dir=None, out_dir=None):
 
         # data points of shape: (num_points, data_dimension)
         self.data_points = data_points
         self.figures_dir = figures_dir
+        self.out_dir = out_dir
         self.palette = None
         self.labels = None
 
     @abstractmethod
-    def run(self, file_name: str):
+    def run(self):
         pass
 
     def euclidean_distance(self, u: np.array, v: np.array) -> float:
@@ -85,18 +85,3 @@ class BaseAlgo:
         ax.get_figure().savefig(out_file, bbox_inches='tight')
         plt.clf()
 
-
-
-    def makeGIF(self, file_name: str):
-        figures = os.listdir(self.figures_dir)
-        if not figures:
-            return
-
-        # https://stackoverflow.com/questions/753190/programmatically-generate-video-or-animated-gif-in-python
-        images = []
-        for i, _ in enumerate(figures):
-            file_path = os.path.join(self.figures_dir, '{}.png'.format(i))
-            img = imageio.imread(file_path)
-            images.append(img)
-
-        imageio.mimwrite(os.path.join(self.figures_dir, 'demo_{}.gif'.format(file_name)), images, duration=0.3)

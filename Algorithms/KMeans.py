@@ -17,7 +17,7 @@ class KMeans(BaseAlgo):
         self.max_iter = max_iter
         self.K = K
 
-    def run(self, file_name: str):
+    def run(self):
 
         # expectation - maximization implementation for n'dim data
         N_points, data_dim = self.data_points.shape
@@ -53,10 +53,9 @@ class KMeans(BaseAlgo):
                 centroids[i] = new_centroid
 
             # break if centroids don't change
-            if np.sum(np.abs(old_centroids-centroids)) < float('1e-10'):
+            if iter >= 1 and np.sum(np.abs(old_centroids-centroids)) < float('1e-10'):
                 break
 
         self.labels = labels
-        self.makeGIF(file_name)
         return self
 

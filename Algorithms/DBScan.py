@@ -17,7 +17,7 @@ class DBScan(BaseAlgo):
         self.radios = radios
         self.close_bound = close_bound
 
-    def run(self, file_name: str):
+    def run(self):
 
         # distances saved in a N_points * N_points matrix (symmetrical)
         N_points, _ = self.data_points.shape
@@ -81,7 +81,6 @@ class DBScan(BaseAlgo):
 
         # paint final clustering
         self.paint(labels, iter=1)
-        self.makeGIF(file_name)
         return self
 
 
