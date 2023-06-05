@@ -79,7 +79,11 @@ class BaseAlgo:
 
         ax.set_xlabel('')
         ax.set_ylabel('')
-        ax.set_title('Epoch: ' + str(iter), fontsize=15)
+        #ax.set_title('Epoch: ' + str(iter), fontsize=15)
+        plt.axis('off')
+        fig.patch.set_edgecolor('black')
+        fig.patch.set_linewidth(1)
+
         ax.get_legend().remove()
         out_file = os.path.join(self.figures_dir, str(iter))
         ax.get_figure().savefig(out_file, bbox_inches='tight')
