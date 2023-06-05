@@ -75,7 +75,7 @@ class BaseAlgo:
         fig = plt.figure(figsize=(9, 6.5))
         ax = plot(d_np=self.data_points, to_append=labels)
         if centroids is not None:
-            ax = plot(d_np=centroids, to_append=np.array(list(range(unique_labels))), ax=ax, s=500, alpha=.5)
+            ax = plot(d_np=centroids, to_append=np.array(list(range(unique_labels))), ax=ax, s=8000, alpha=.25)
 
         ax.set_xlabel('')
         ax.set_ylabel('')
