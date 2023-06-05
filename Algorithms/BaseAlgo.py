@@ -6,6 +6,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 from abc import ABC, abstractmethod
+import imageio
+
 
 class BaseAlgo:
     def __init__(self, data_points: np.array, figures_dir=None):
@@ -90,7 +92,6 @@ class BaseAlgo:
             return
 
         # https://stackoverflow.com/questions/753190/programmatically-generate-video-or-animated-gif-in-python
-        import imageio
         images = []
         for i, _ in enumerate(figures):
             file_path = os.path.join(self.figures_dir, '{}.png'.format(i))
