@@ -72,14 +72,14 @@ class BaseAlgo:
 
             return ax
 
+        fig = plt.figure(figsize=(9, 6.5))
         ax = plot(d_np=self.data_points, to_append=labels)
         if centroids is not None:
             ax = plot(d_np=centroids, to_append=np.array(list(range(unique_labels))), ax=ax, s=500, alpha=.5)
 
-        plt.rcParams["font.weight"] = "bold"
         ax.set_xlabel('')
         ax.set_ylabel('')
-        ax.set_title('Epoch: ' + str(iter), fontsize=15, fontweight='bold')
+        ax.set_title('Epoch: ' + str(iter), fontsize=15)
         ax.get_legend().remove()
         out_file = os.path.join(self.figures_dir, str(iter))
         ax.get_figure().savefig(out_file, bbox_inches='tight')
@@ -95,5 +95,7 @@ class BaseAlgo:
         images = []
         for i, _ in enumerate(figures):
             file_path = os.path.join(self.figures_dir, '{}.png'.format(i))
-            images.append(imageio.imread(file_path))
-        imageio.mimsave(os.path.join(self.figures_dir, 'vis.gif'), images, fps=0.75)
+            img = imageio.imread(file_path)
+            images.append(img)
+
+        imageio.mimwrite(os.path.join(self.figures_dir, 'demo.gif'), images, duration=0.3)
