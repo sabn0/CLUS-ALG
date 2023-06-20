@@ -13,4 +13,7 @@ Algorithms work on data with n dimension.
 
 <img src="https://github.com/sabn0/CLUS-ALG/blob/main/Example/dbscan.png" width="450" height="325">
 
+3) The **agglomerative hierarchical** algorithm : an exhustive search, used [here](https://github.com/sabn0/MultiMeaningGrouping)
+
+
 In the process of adding more ...
